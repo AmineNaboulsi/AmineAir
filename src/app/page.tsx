@@ -1,10 +1,16 @@
+import HomePage from './Components/Header';
+import './globals.css'
+import Link from 'next/link';
 
 export default function Home() {
   return (
     <>
-    <div className="flex justify-center items-center h-[100dvh]">
-      <h1>Not ready yet</h1>
-    </div>
+    <HomePage />
+      Navigate to :
+      <ul>
+        <li><Link href="/Search-results">Search Results</Link></li>
+      </ul>
     </>
+    
   );
 }
