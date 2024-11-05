@@ -6,12 +6,10 @@ function index() {
   return (
     <div>
      <Header />
-
       Navigat to 
       <ul>
         <li><Link href="/Booking">Search Results</Link></li>
       </ul>
-
     </div>
   )
 }
