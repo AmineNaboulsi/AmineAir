@@ -23,7 +23,7 @@ interface VoleInfoType {
   };
 }
 
-function searchbar() {
+function Searchbar() {
     const [VoleInfo , setVoleInfo] = useState<VoleInfoType>({
         CityStart  : "" ,
         CityEnd : "" ,
@@ -39,7 +39,6 @@ function searchbar() {
   return (
     <div className='bg-maincolor'>
         <div className="container">
-            
             <div className="">
                 <ul className='flex items-center  text-xl'>
                     <li className='relative px-5 flex justify-center'>
@@ -248,4 +247,4 @@ function searchbar() {
   )
 }
 
-export default searchbar
+export default Searchbar

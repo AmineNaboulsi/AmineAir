@@ -1,5 +1,5 @@
 import Header from './Components/header';
-import SearchBar from './Components/searchbar';
+import SearchBar from './Components/Searchbar';
 import './globals.css'
 import Image from 'next/image'
 

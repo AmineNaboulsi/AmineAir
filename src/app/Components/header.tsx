@@ -4,8 +4,15 @@ import { useState } from "react";
 import Image from 'next/image'
 import { IoIosArrowDown } from "react-icons/io";
 
+type Country = {
+  country: string;
+  language: string;
+  flagUrl: string;
+  isSelected: boolean;
+};
+
 function Header() {
-  const [countries  , setcountries ] = useState([
+  const [countries] = useState<Country[]>([
     { country: "Austria", language: "German", flagUrl: "https://flagcdn.com/at.svg" ,isSelected : false },
     { country: "Belgium", language: "Dutch", flagUrl: "https://flagcdn.com/be.svg",isSelected : false },
     { country: "Belgium", language: "French", flagUrl: "https://flagcdn.com/be.svg",isSelected : false },
@@ -53,7 +60,7 @@ function Header() {
   const OpenLanguePickerHandler = () =>{
     setcountriesStatus(!countriesStatus);
   }
-  const ChangeLangueHandler = (item) =>{
+  const ChangeLangueHandler = (item : Country) =>{
     setcountriesSelected(item);
     setcountriesStatus(false);
   }
@@ -89,7 +96,7 @@ function Header() {
         
         </div>
         <div className="h-[20px] w-[1px] bg-blue-400"></div>
-        <a href=''>S'inscrire</a>
+        <a href='#'>S&apos;inscrire</a>
         <a className='bg-secondcolor px-4 py-1 rounded-xl' href=''>Se connecter</a>
       </div>
     </div>
