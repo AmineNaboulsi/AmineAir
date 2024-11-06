@@ -60,6 +60,8 @@ function Header() {
   const OpenLanguePickerHandler = () =>{
     setcountriesStatus(!countriesStatus);
   }
+  fetch('../kjcbqjq/test.json')
+  .then(res=>res.json())
   const ChangeLangueHandler = (item : Country) =>{
     setcountriesSelected(item);
     setcountriesStatus(false);

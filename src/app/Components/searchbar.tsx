@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaCar } from "react-icons/fa";
 import { MdLocalHotel } from "react-icons/md";
-import Link from 'next/link';
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import Image from 'next/image';
 import { CiCirclePlus } from "react-icons/ci";
@@ -36,7 +36,22 @@ function Searchbar() {
         }
     })
     const [ShowPopupPassager , setShowPopupPassager] = useState(false) ;
-  return (
+    const handleSearchSubmit =()=>{
+        router.push({
+            pathname: '/searchresults',
+            query: {
+                id: 1,
+                from: VoleInfo.CityStart,
+                to: VoleInfo.CityEnd,
+                departureDate: VoleInfo.DateStart.toISOString(),
+                passengers: `${VoleInfo.NbPlaces.Adultes}`,
+            },
+        });
+    }
+  
+
+     
+    return (
     <div className='bg-maincolor'>
         <div className="container">
             <div className="">
@@ -73,7 +88,11 @@ function Searchbar() {
                 <div className="grid grid-cols-[1fr,auto,1fr]  bg-white items-center rounded-[3px]">
                             <div className="flex flex-col px-4 py-1">
                                 <span className='text-gray-400 text-sm'>De</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input 
+                                placeholder='ville' 
+                                value={VoleInfo.CityStart}
+                                onChange={(e) => setVoleInfo({ ...VoleInfo, CityStart: e.target.value })}
+                                style={{all : 'unset'}} className='font-normal' type='text' />
                             </div>
                             <div className="relative flex items-center h-[100%]">
                                 <div className="absolute left-[50%] h-[100%] w-[1px] bg-gray-300"></div>
@@ -81,16 +100,23 @@ function Searchbar() {
                             </div>
                             <div className="flex flex-col px-4 py-1">
                                 <span className='text-gray-400 text-sm'>A</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input placeholder='ville' 
+                                 value={VoleInfo.CityEnd}
+                                 onChange={(e) => setVoleInfo({ ...VoleInfo, CityEnd: e.target.value })}
+                                style={{all : 'unset'}} className='font-normal' type='text' />
                             </div> 
                         </div>
-                    <Link className='flex items-center bg-secondcolor px-24 rounded-[3px]' href="/searchresults" >
+                    <div className='cursor-pointer select-none flex items-center bg-secondcolor px-24 rounded-[3px]' onClick={()=>handleSearchSubmit()}>
                         <span>Recherche</span>
-                    </Link>
+                    </div>
                     <div className=" grid grid-cols-[1fr,auto] gap-2  items-center rounded-[3px]">
                             <div className="flex flex-col px-4 py-1 bg-white rounded-[3px]">
-                                <span className='text-gray-400 text-sm'>De</span>
-                                <input  type='date'  style={{all : 'unset'}} className='font-normal'/>
+                                <span className='text-gray-400 text-sm'>Départ</span>
+                                <input 
+                                 type='date'
+                                 value={VoleInfo.DateStart.toISOString().slice(0,10)}
+                                 onChange={(e) => setVoleInfo({ ...VoleInfo, DateStart: new Date(e.target.value) })}
+                                 style={{all : 'unset'}} className='font-normal'/>
                             </div>
                             <div 
                             className="relative w-64 cursor-pointer" >
