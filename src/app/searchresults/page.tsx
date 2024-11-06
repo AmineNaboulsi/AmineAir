@@ -8,7 +8,7 @@ function index() {
      <Header />
       Navigat to 
       <ul>
-        <li><Link href="/booking">Search Results</Link></li>
+        <li><Link href="/booking">Search booking</Link></li>
       </ul>
     </div>
   )
