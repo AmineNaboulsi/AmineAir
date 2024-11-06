@@ -1,4 +1,4 @@
-import Header from './Components/Header';
+import Header from './Components/header';
 import './globals.css'
 import Link from 'next/link';
 
@@ -9,7 +9,7 @@ export default function Home() {
     <Header />
       Navigate to :
       <ul>
-        <li><Link href="/Search-results">Search Results</Link></li>
+        <li><Link href="/searchresults">Search Results</Link></li>
       </ul>
     </>
     

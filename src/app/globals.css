@@ -6,6 +6,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primarycolor : #74BDD8;
+  --secondcolor : #FFE045;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,3 +22,27 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.container{
+  margin-inline: auto;
+  }
+  /* Mobile */
+  @media (min-width: 768px) {
+    .container {
+      width: 738px;
+    }
+  }
+  /* tablet */
+  @media (min-width: 992px) {
+    .container {
+      width: 970px;
+    }
+  
+  }
+  /* desktop */
+  @media (min-width: 1200px) {
+    .container {
+      width: 1170px;
+    }
+  }
+  
