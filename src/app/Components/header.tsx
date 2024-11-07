@@ -92,8 +92,6 @@ function Header() {
             alt='' />
           </>}
           <IoIosArrowDown className={`transition-all ${countriesStatus ? 'rotate-180 ': 'rotate-0 '}`} />
-
-        
         </div>
         <div className="h-[20px] w-[1px] bg-blue-400"></div>
         <a href='#'>S&apos;inscrire</a>
