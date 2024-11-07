@@ -38,7 +38,7 @@ function Header() {
     { country: "Luxembourg", language: "French", flagUrl: "https://flagcdn.com/lu.svg" ,isSelected : false},
     { country: "Malta", language: "English", flagUrl: "https://flagcdn.com/mt.svg" ,isSelected : false},
     { country: "Montenegro", language: "English", flagUrl: "https://flagcdn.com/me.svg" ,isSelected : false},
-    { country: "Morocco", language: "French", flagUrl: "https://flagcdn.com/ma.svg" ,isSelected : false},
+    { country: "Morocco", language: "French", flagUrl: "https://flagcdn.com/ma.svg" ,isSelected : true},
     { country: "Netherlands", language: "Dutch", flagUrl: "https://flagcdn.com/nl.svg" ,isSelected : false},
     { country: "Norway", language: "Norwegian", flagUrl: "https://flagcdn.com/no.svg" ,isSelected : false},
     { country: "Poland", language: "Polish", flagUrl: "https://flagcdn.com/pl.svg" ,isSelected : false},
@@ -46,7 +46,7 @@ function Header() {
     { country: "Romania", language: "Romanian", flagUrl: "https://flagcdn.com/ro.svg",isSelected : false },
     { country: "Serbia", language: "English", flagUrl: "https://flagcdn.com/rs.svg" ,isSelected : false},
     { country: "Slovakia", language: "English", flagUrl: "https://flagcdn.com/sk.svg" ,isSelected : false},
-    { country: "Spain", language: "Catalan", flagUrl: "https://flagcdn.com/es.svg" ,isSelected : true},
+    { country: "Spain", language: "Catalan", flagUrl: "https://flagcdn.com/es.svg" ,isSelected : false},
     { country: "Spain", language: "Spanish", flagUrl: "https://flagcdn.com/es.svg",isSelected : false },
     { country: "Sweden", language: "Swedish", flagUrl: "https://flagcdn.com/se.svg",isSelected : false },
     { country: "Turkey", language: "English", flagUrl: "https://flagcdn.com/tr.svg" ,isSelected : false},
@@ -66,7 +66,7 @@ function Header() {
   }
   return (
     <div className="relative">
-    <div className='bg-maincolor text-black flex justify-between items-center px-8 py-3'>
+    <div className='bg-maincolor text-white flex justify-between items-center px-8 py-3'>
       <div className="flex items-center gap-1">
         <Image
           src="/main-logo.png"
@@ -97,11 +97,11 @@ function Header() {
         </div>
         <div className="h-[20px] w-[1px] bg-blue-400"></div>
         <a href='#'>S&apos;inscrire</a>
-        <a className='bg-secondcolor px-4 py-1 rounded-xl' href=''>Se connecter</a>
+        <a className='text-black bg-secondcolor px-4 py-1 rounded-xl' href=''>Se connecter</a>
       </div>
     </div>
-    <div className={`${countriesStatus ? '' : "hidden"} absolute left-0 right-0 bg-white `}>
-      <div className="container grid grid-cols-4 p-2 gap-x-4">
+    <div className={`${countriesStatus ? '' : "hidden"} absolute left-0 right-0 bg-white z-[10]`}>
+      <div className="container grid grid-cols-4 p-2 gap-x-4 select-none">
       {countries && countries.map((item ,index)=>(
         <>
     <div 

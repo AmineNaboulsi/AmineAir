@@ -40,7 +40,7 @@ function Searchbar() {
     <div className='bg-maincolor'>
         <div className="container">
             <div className="">
-                <ul className='flex items-center  text-xl'>
+                <ul className='flex items-center  text-xl text-gray-100'>
                     <li className='relative px-5 flex justify-center'>
                         <div className="flex items-center justify-center gap-3">
                             <BiSolidPlaneAlt />
@@ -84,7 +84,7 @@ function Searchbar() {
                                 <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
                             </div> 
                         </div>
-                    <Link className='flex items-center bg-secondcolor px-24 rounded-[3px]' href="/searchresults" >
+                    <Link className='text-black flex items-center bg-secondcolor px-24 rounded-[3px]' href="/searchresults" >
                         <span>Recherche</span>
                     </Link>
                     <div className=" grid grid-cols-[1fr,auto] gap-2  items-center rounded-[3px]">
