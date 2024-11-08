@@ -280,7 +280,7 @@ function page() {
               </div>
             </div>
             <div className="max-md:flex max-md:justify-center  ">
-              <button className='text-white rounded-md px-10 py-3 bg-maincolor'>Confirme votre choix</button>
+              <button className='text-white rounded-md w-full py-3 bg-maincolor'>Confirme votre choix</button>
             </div>
           </div>
           
