@@ -114,7 +114,7 @@ function Searchbar() {
 
                                 </div>
                                 
-                                <div className={`${!ShowPopupPassager && 'hidden' } absolute w-[120%] right-0 top-[95%] max-md:fixed max-md:inset-0 max-md:flex max-md:justify-center max-md:items-center max-md:w-full max-md:bg-bggraycolor max-md:z-[6]`}>
+                                <div className={`${!ShowPopupPassager && 'hidden max-md:hidden' } absolute w-[120%] right-0 top-[95%] max-md:fixed max-md:inset-0 max-md:flex max-md:justify-center max-md:items-center max-md:w-full max-md:bg-bggraycolor max-md:z-[6]`}>
                                     <div className="flex justify-center max-md:hidden">
                                         <Image src="/poppupicon.svg"
                                                 width={30}
@@ -226,7 +226,16 @@ function Searchbar() {
                                                         }} />
                                                     </div>
                                                 </div>
-                                               
+                                                
+                                                <div className="flex items-center justify-end">
+                                                    <div className="flex flex-col text-blue-600"
+                                                    onClick={()=>{
+                                                        setShowPopupPassager(!ShowPopupPassager);
+                                                    }}>
+                                                        Fini
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
                                     
                                 </div>
