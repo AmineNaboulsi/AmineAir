@@ -66,7 +66,7 @@ function Header() {
   }
   return (
     <div className="relative">
-    <div className='bg-maincolor text-white flex justify-between items-center px-8 py-3'>
+    <div className='bg-maincolor text-white flex justify-between items-center px-8 py-3 max-md:px-2'>
       <div className="flex items-center gap-1">
         <Image
           src="/main-logo.png"
@@ -76,14 +76,14 @@ function Header() {
         <span className='text-[1.5rem]'>AmineAir</span>
       </div>
       <div className="flex flex-row gap-5 items-center">
-        <a className='flex flex-row justify-center items-center gap-2 hover:underline' href=''>
+        <a className='flex flex-row justify-center items-center gap-2 hover:underline max-md:hidden' href=''>
           <span>Planifier</span>
           <IoIosArrowDown />
         </a>
-        <div className="h-[20px] w-[1px] bg-blue-400"></div>
-        <a className='hover:underline' href=''>FAQ</a>
-        <div className="h-[20px] w-[1px] bg-blue-400"></div>
-        <div className="flex items-center gap-2 cursor-pointer" onClick={()=>OpenLanguePickerHandler()}>
+        <div className="h-[20px] w-[1px] bg-blue-400 max-md:hidden"></div>
+        <a className='hover:underline max-md:hidden' href=''>FAQ</a>
+        <div className="h-[20px] w-[1px] bg-blue-400 max-md:hidden"></div>
+        <div className="flex items-center gap-2 cursor-pointer max-md:hidden " onClick={()=>OpenLanguePickerHandler()}>
           {countriesSelected && <>
             <Image
             src={countriesSelected.flagUrl}
@@ -93,7 +93,7 @@ function Header() {
           </>}
           <IoIosArrowDown className={`transition-all ${countriesStatus ? 'rotate-180 ': 'rotate-0 '}`} />
         </div>
-        <div className="h-[20px] w-[1px] bg-blue-400"></div>
+        <div className="h-[20px] w-[1px] bg-blue-400 max-md:hidden"></div>
         <a href='#'>S&apos;inscrire</a>
         <a className='text-black bg-secondcolor px-4 py-1 rounded-xl' href=''>Se connecter</a>
       </div>

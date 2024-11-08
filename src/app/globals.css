@@ -9,6 +9,7 @@
   --primarycolor : #073794;
   --secondcolor : #FFE045;
   --coldbluecolor : #E2F4FF;
+  --bggraycolor : #4f4d4dc4;
 }
 
 @media (prefers-color-scheme: dark) {
