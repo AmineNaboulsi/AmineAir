@@ -2,33 +2,25 @@ import React from 'react'
 import Link from 'next/link'
 import Header from '../Components/header';
 import Image from 'next/image'
-import { IoPerson } from "react-icons/io5";
 import { FaPlaneDeparture } from "react-icons/fa";
 import { IoIosAirplane } from "react-icons/io";
-
+import StatusInfo from '../Components/statusinfo'
 function index() {
   return (
     <div>
      <Header />
-     <section className="bg-white">
-        <div className="container">
-          <div className="p-3 flex flex-col gap-2 max-md:text-center">
-            <span className='text-xl'>Marrakech Barcelone (Tous les aéroports)</span>
-            <div className="flex gap-6 text-gray-400 max-md:justify-center">
-              <span>Aller simple</span>
-              <div className="flex gap-2 items-center">
-                <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
-                <span>8 nov.</span>
-              </div>
-              <div className="flex gap-2 items-center">
-              <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
-              <span>1</span>
-              <IoPerson />
-              </div>
-            </div>
-          </div>
-        </div>
-     </section>
+     <StatusInfo voldata={{
+        CityStart  : "" ,
+        CityEnd : "" ,
+        DateStart : new Date() ,
+        NbPlaces : {
+            Adultes : 1 ,
+            teenager : 0 ,
+            child : 0 ,
+            Baby : 0 ,
+        }
+    }}/>
+      
       <section className='mt-10'>
         <div className="container">
           <div className="max-md:mx-4">
