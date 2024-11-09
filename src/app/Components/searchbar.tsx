@@ -1,6 +1,6 @@
 "use client";
 
-import { useState , useContext } from "react";
+import { useState } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaCar } from "react-icons/fa";
 import { MdLocalHotel } from "react-icons/md";
@@ -10,31 +10,31 @@ import Image from 'next/image';
 import { CiCirclePlus } from "react-icons/ci";
 import { IoIosInformationCircle } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
-import {Trypassparametre} from "./Context/datacontext"
-
-interface VoleInfoType {
-    CityStart: string;
-    CityEnd: string;
-    DateStart: Date;
-    NbPlaces : {
-        Adultes : number ;
-        teenager : number ;
-        child : number ;
-        Baby : number ;
-  };
-}
+import { useRouter } from 'next/navigation';
 
 function Searchbar() {
 
-    const context = useContext(Trypassparametre);
 
-    if (!context) {
-        throw new Error("Searchbar must be used within a TrypassparametreProvider");
-    }
-
-    const { VoleInfo, setVoleInfo } = useState<VoleInfoType>(context);
-
+    const [VoleInfo , setVoleInfo] = useState({
+        CityStart  : "" ,
+        CityEnd : "" ,
+        DateStart : new Date() ,
+        NbPlaces : {
+            Adultes : 1 ,
+            teenager : 0 ,
+            child : 0 ,
+            Baby : 0 ,
+        }
+    })
     const [ShowPopupPassager , setShowPopupPassager] = useState(false) ;
+    const router = useRouter();
+
+    const HnadledSearchClick = () =>{
+        console.log({'before' : VoleInfo});
+        localStorage.setItem('vatavols', JSON.stringify(VoleInfo));
+
+        router.push('/searchresults');
+    }
   return (
     <div className='bg-maincolor'>
         <div className="container">
@@ -71,7 +71,14 @@ function Searchbar() {
                 <div className="grid grid-cols-[1fr,auto,1fr] max-md:grid-cols-1 items-center rounded-[3px]">
                             <div className="flex flex-col px-4 py-1 bg-white">
                                 <span className='text-gray-400 text-sm'>De</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input
+                                value={VoleInfo.CityStart}
+                                onChange={(e)=>{
+                                    setVoleInfo(prev=>
+                                        ({...prev,CityStart : e.target.value})
+                                    )
+                                }}
+                                placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
                             </div>
                             <div className="relative flex items-center justify-center h-[100%] bg-white max-md:bg-transparent">
                                 <div className=" left-[50%] h-[100%] w-[1px] bg-gray-300 hidden"></div>
@@ -79,16 +86,33 @@ function Searchbar() {
                             </div>
                             <div className="flex flex-col px-4 py-1 bg-white max-md:mt-2">
                                 <span className='text-gray-400 text-sm'>A</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input placeholder='ville'
+                                value={VoleInfo.CityEnd}
+                                onChange={(e)=>{
+                                    setVoleInfo(prev=>
+                                        ({...prev,CityEnd : e.target.value})
+                                    )
+                                }}
+                                style={{all : 'unset'}} className='font-normal' type='text' />
                             </div> 
                         </div>
-                    <Link className='max-md:row-start-3 text-black flex items-center justify-center bg-secondcolor px-24 max-md:py-2 rounded-[3px]' href="/searchresults" >
+                    <div className='max-md:row-start-3 text-black flex items-center justify-center bg-secondcolor px-24 max-md:py-2 rounded-[3px]' 
+                        onClick={HnadledSearchClick} >
                         <span>Recherche</span>
-                    </Link>
+                    </div>
                     <div className="grid grid-cols-[1fr,1fr] gap-2  items-center rounded-[3px]">
                             <div className="flex flex-col px-4 py-1 bg-white rounded-[3px]">
                                 <span className='text-gray-400 text-sm'>De</span>
-                                <input  type='date'  style={{all : 'unset'}} className='font-normal'/>
+                                <input 
+                                 value={VoleInfo.DateStart.toISOString().split('T')[0]}
+                                 onChange={(e)=>{
+                                     setVoleInfo(prev=>
+                                         ({...prev,DateStart : new Date(e.target.value)})
+                                     )
+                                 }}
+                                type='date' 
+                                
+                                style={{all : 'unset'}} className='font-normal'/>
                             </div>
                             <div 
                             className="relative w-64 cursor-pointer max-md:w-auto" >
@@ -101,13 +125,13 @@ function Searchbar() {
                                                             <label style={{all : 'unset'}}
                                                             className='font-normal '
                                                             >
-                                                             {VoleInfo && VoleInfo?.NbPlaces?.Adultes } Adultes
-                                                             {(VoleInfo?.NbPlaces?.teenager + 
-                                                                            VoleInfo?.NbPlaces?.child + 
-                                                                            VoleInfo?.NbPlaces?.Baby > 0) && `, ` + (
-                                                                            VoleInfo?.NbPlaces?.teenager + 
-                                                                            VoleInfo?.NbPlaces?.child + 
-                                                                            VoleInfo?.NbPlaces?.Baby ) + ` Autres` } 
+                                                             {VoleInfo && VoleInfo.NbPlaces.Adultes } Adultes
+                                                             {(VoleInfo.NbPlaces.teenager + 
+                                                                            VoleInfo.NbPlaces.child + 
+                                                                            VoleInfo.NbPlaces.Baby > 0) && `, ` + (
+                                                                            VoleInfo.NbPlaces.teenager + 
+                                                                            VoleInfo.NbPlaces.child + 
+                                                                            VoleInfo.NbPlaces.Baby ) + ` Autres` } 
                                                             </label>
                                                             
 
