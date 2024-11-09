@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState , useContext } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaCar } from "react-icons/fa";
 import { MdLocalHotel } from "react-icons/md";
@@ -10,6 +10,7 @@ import Image from 'next/image';
 import { CiCirclePlus } from "react-icons/ci";
 import { IoIosInformationCircle } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
+import {Trypassparametre} from "./Context/datacontext"
 
 interface VoleInfoType {
     CityStart: string;
@@ -24,17 +25,15 @@ interface VoleInfoType {
 }
 
 function Searchbar() {
-    const [VoleInfo , setVoleInfo] = useState<VoleInfoType>({
-        CityStart  : "" ,
-        CityEnd : "" ,
-        DateStart : new Date() ,
-        NbPlaces : {
-            Adultes : 1 ,
-            teenager : 0 ,
-            child : 0 ,
-            Baby : 0 ,
-        }
-    })
+
+    const context = useContext(Trypassparametre);
+
+    if (!context) {
+        throw new Error("Searchbar must be used within a TrypassparametreProvider");
+    }
+
+    const { VoleInfo, setVoleInfo } = useState<VoleInfoType>(context);
+
     const [ShowPopupPassager , setShowPopupPassager] = useState(false) ;
   return (
     <div className='bg-maincolor'>
@@ -102,13 +101,13 @@ function Searchbar() {
                                                             <label style={{all : 'unset'}}
                                                             className='font-normal '
                                                             >
-                                                             {VoleInfo && VoleInfo.NbPlaces.Adultes } Adultes
-                                                             {(VoleInfo.NbPlaces.teenager + 
-                                                                            VoleInfo.NbPlaces.child + 
-                                                                            VoleInfo.NbPlaces.Baby > 0) && `, ` + (
-                                                                            VoleInfo.NbPlaces.teenager + 
-                                                                            VoleInfo.NbPlaces.child + 
-                                                                            VoleInfo.NbPlaces.Baby ) + ` Autres` } 
+                                                             {VoleInfo && VoleInfo?.NbPlaces?.Adultes } Adultes
+                                                             {(VoleInfo?.NbPlaces?.teenager + 
+                                                                            VoleInfo?.NbPlaces?.child + 
+                                                                            VoleInfo?.NbPlaces?.Baby > 0) && `, ` + (
+                                                                            VoleInfo?.NbPlaces?.teenager + 
+                                                                            VoleInfo?.NbPlaces?.child + 
+                                                                            VoleInfo?.NbPlaces?.Baby ) + ` Autres` } 
                                                             </label>
                                                             
 

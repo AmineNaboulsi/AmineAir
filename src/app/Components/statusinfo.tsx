@@ -1,27 +1,30 @@
 "use client";
 
-import React, { useState } from 'react'
+import React, { useState , useContext } from 'react'
 import { IoPerson } from "react-icons/io5";
+import {Trypassparametre} from "./Context/datacontext"
 
-interface NbPlaces {
-    Adultes: number;
-    teenager: number;
-    child: number;
-    Baby: number;
+interface VoleInfoType {
+  CityStart: string;
+  CityEnd: string;
+  DateStart: Date;
+  NbPlaces : {
+      Adultes : number ;
+      teenager : number ;
+      child : number ;
+      Baby : number ;
+};
+}
+function StatusInfo(){
+
+  const context = useContext(Trypassparametre);
+
+  if (!context) {
+      throw new Error("Searchbar must be used within a TrypassparametreProvider");
   }
-  
-  interface VoleInfoProps {
-    voldata: {
-      CityStart: string;
-      CityEnd: string;
-      DateStart: Date;
-      NbPlaces: NbPlaces;
-    };
-  }
 
-const StatusInfo: React.FC<VoleInfoProps> = ({ voldata }) => {
+  const { VoleInfo, setVoleInfo } = useState<VoleInfoType>(context);
 
-    const [VoleInfo, setVoleInfo] = useState(voldata);
     
   return (
         <section className="bg-white">
@@ -32,7 +35,7 @@ const StatusInfo: React.FC<VoleInfoProps> = ({ voldata }) => {
               <span>Aller simple</span>
               <div className="flex gap-2 items-center">
                 <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
-                <span>8 nov.</span>
+                <span>{VoleInfo?.CityStart}</span>  
               </div>
               <div className="flex gap-2 items-center">
               <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
