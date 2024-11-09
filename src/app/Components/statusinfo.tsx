@@ -43,7 +43,9 @@ function StatusInfo(){
               </div>
               <div className="flex gap-2 items-center">
               <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
-              <span>{VoleInfo?.NbPlaces?.Adultes}</span>
+              <span>{ VoleInfo && ( <>{
+                VoleInfo.NbPlaces.Baby +  VoleInfo.NbPlaces.child + VoleInfo.NbPlaces.teenager + VoleInfo.NbPlaces.Adultes
+              }</>)}</span>
               <IoPerson />
               </div>
             </div>

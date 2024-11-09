@@ -4,23 +4,12 @@ import Header from '../Components/header';
 import Image from 'next/image'
 import { FaPlaneDeparture } from "react-icons/fa";
 import { IoIosAirplane } from "react-icons/io";
-import StatusInfo from '../Components/statusinfo'
+import StatusInfo from '../Components/statusinfo';
 function index() {
   return (
     <div>
      <Header />
-     <StatusInfo voldata={{
-        CityStart  : "" ,
-        CityEnd : "" ,
-        DateStart : new Date() ,
-        NbPlaces : {
-            Adultes : 1 ,
-            teenager : 0 ,
-            child : 0 ,
-            Baby : 0 ,
-        }
-    }}/>
-      
+     <StatusInfo />
       <section className='mt-10'>
         <div className="container">
           <div className="max-md:mx-4">
@@ -66,9 +55,9 @@ function index() {
                         <span className='text-xs text-gray-400'>Trafic Basic</span>
                         <span className='text-2xl font-semibold'>1.519,10 Dhs</span>
                       </div>
-                      <div className="bg-yellow-300 flex items-center justify-center rounded-md">
+                      <Link href="/booking" className="bg-yellow-300 flex items-center justify-center rounded-md">
                         <span>selectionner</span>
-                      </div>
+                      </Link>
                   </div>
                </div>
                <div className="bg-white grid grid-cols-[auto,1fr,1fr] grid-rows-1 p-7 mt-3 max-md:grid-cols-1 max-md:grid-rows-[1fr,auto] ">
@@ -101,9 +90,9 @@ function index() {
                         <span className='text-xs text-gray-400'>Trafic Basic</span>
                         <span className='text-2xl font-semibold'>1.519,10 Dhs</span>
                       </div>
-                      <div className="bg-yellow-300 flex items-center justify-center rounded-md">
+                      <Link href="/booking" className="bg-yellow-300 flex items-center justify-center rounded-md">
                         <span>selectionner</span>
-                      </div>
+                      </Link>
                   </div>
                </div>
           </div>
