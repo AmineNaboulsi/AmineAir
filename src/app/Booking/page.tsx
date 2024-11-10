@@ -3446,7 +3446,15 @@ function Booking() {
   
   const HandledClickConfirmation = () =>{
     if(HowManyPlaceLeft() < NbPlaceT)alert('Pick you places');
-    else router.push("/tickets");
+    else {
+        const id = parseInt(localStorage.getItem('planeid'));
+
+        Vols.forEach((item: VolM) => {
+        if (item.id === id) {
+            localStorage.setItem('placesNumbers' , JSON.stringify(item.PlacesNb));
+        }});
+    }
+    router.push("/tickets");
   }
   useEffect(()=>{
     const searchdata = localStorage.getItem('vatavols');
@@ -3454,16 +3462,13 @@ function Booking() {
       const alldata = JSON.parse(searchdata);
       setVoleInfo(alldata);
   
-      // Calculate total number of places picked
       const totalPlacesPicked = alldata.NbPlaces.Baby + alldata.NbPlaces.child + alldata.NbPlaces.teenager + alldata.NbPlaces.Adultes;
       setNbPlaceT(totalPlacesPicked);
   
-      // Get the plane ID from localStorage and filter Vols
       const id = parseInt(localStorage.getItem('planeid'));
       setPlaneId(id);
       setVols((pre: VolM[]) => pre.filter((item) => item.id == id));
   
-      // Calculate the total price
       let total = 0;
       let placecat = [0, 0, 0, 0];
   
@@ -3474,13 +3479,13 @@ function Booking() {
           placecat[0] = adultTotal;
   
           if (alldata.NbPlaces.Baby > 0) {
-            const babyTotal = (alldata.NbPlaces.Baby * item.price) - 50; 
+            const babyTotal = (alldata.NbPlaces.Baby * item.price) - 150; 
             total += babyTotal;
             placecat[3] = babyTotal;
           }
   
           if (alldata.NbPlaces.child > 0) {
-            const childTotal = (alldata.NbPlaces.child * item.price) - 50; 
+            const childTotal = (alldata.NbPlaces.child * item.price) - 100; 
             total += childTotal;
             placecat[2] = childTotal;
           }
@@ -3601,7 +3606,7 @@ function Booking() {
             <div className="border-2 border-gray-300 rounded-md">
               <div className="flex justify-between rounded-ss-md rounded-se-md bg-gray-200 text-xl text-black p-3  ">
                 <span>Total</span>
-                <span >{TotalPrice && TotalPrice.totalprice}</span>
+                <span >{TotalPrice && parseInt(TotalPrice.totalprice)} MAD</span>
                 
               </div>
               <div className="flex flex-col px-5 py-3">
@@ -3609,7 +3614,7 @@ function Booking() {
                           <>
                                   <div className="flex justify-between">
                                     <span>{i==0?"Adultes":i==1 ? "Teenager" : i==2 ? "Child" : "Baby" }</span>
-                                    <span>{item}</span>
+                                    <span>{parseInt(item)}</span>
                                   </div>
                           </>
                         ))}

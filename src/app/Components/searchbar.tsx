@@ -32,7 +32,6 @@ function Searchbar() {
     const HnadledSearchClick = () =>{
         console.log({'before' : VoleInfo});
         localStorage.setItem('vatavols', JSON.stringify(VoleInfo));
-
         router.push('/searchresults');
     }
   return (
