@@ -34,7 +34,6 @@ type ticketM = {
     PlaneN : string ;
     Price : number ;
 }
-
 function Tickets() {
 
     const [Vols , setVols] = useState<VolM[]>([
