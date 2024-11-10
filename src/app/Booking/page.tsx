@@ -23,177 +23,3403 @@ interface VoleInfoType {
       Baby : number ;
 };
 }
+type VolM = { id: number,
+  airline: string,
+  departureTime: string,
+  origin: string,
+  destination: string,
+  flightNumber: string,
+  duration: string,
+  arrivalTime: string,
+  price: number,
+  seatAvailability: number,
+  PlacesNb :Places[]};
 
 function Booking() {
-  const [NbPlaces, setNbPlaces] = useState<Places[]>([
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-  
-    {
-      Taked :false ,
-      isEmpty : true
-    },
 
-    {
-      Taked :false ,
-      isEmpty : true
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-   
-    {
-      Taked :false ,
-      isEmpty : true
-    },
+  const [Vols , setVols] = useState<VolM[]>([
+    { id: 1, airline: 'Amine Air', departureTime: '06:45', origin: 'Marrakech', destination: 'Casablanca', flightNumber: 'FR 2240', duration: '2h 25m', arrivalTime: '09:10', price: '1,519.10 Dhs', seatAvailability: 3 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
   
-    {
-      Taked :false ,
-      isEmpty : false
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-   
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-   
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : true
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    }
-    ,
-    {
-      Taked :false ,
-      isEmpty : true
-    },
-    {
-      Taked :false ,
-      isEmpty : false
-    }
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 2, airline: 'Amine Air', departureTime: '08:30', origin: 'Casablanca', destination: 'Rabat', flightNumber: 'FR 2241', duration: '1h 15m', arrivalTime: '09:45', price: '899.50 Dhs', seatAvailability:5,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 3, airline: 'Amine Air', departureTime: '09:00', origin: 'Tangier', destination: 'Fez', flightNumber: 'FR 2242', duration: '1h 00m', arrivalTime: '10:00', price: '750.00 Dhs', seatAvailability: 12,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 4, airline: 'Amine Air', departureTime: '10:15', origin: 'Agadir', destination: 'Marrakech', flightNumber: 'FR 2243', duration: '1h 30m', arrivalTime: '11:45', price: '1,200.00 Dhs', seatAvailability: 6,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 5, airline: 'Amine Air', departureTime: '12:30', origin: 'Casablanca', destination: 'Tangier', flightNumber: 'FR 2244', duration: '2h 15m', arrivalTime: '14:45', price: '1,350.00 Dhs', seatAvailability: 2 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 6, airline: 'Amine Air', departureTime: '14:00', origin: 'Fez', destination: 'Rabat', flightNumber: 'FR 2245', duration: '1h 20m', arrivalTime: '15:20', price: '920.00 Dhs', seatAvailability: 8 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 7, airline: 'Amine Air', departureTime: '15:45', origin: 'Rabat', destination: 'Marrakech', flightNumber: 'FR 2246', duration: '1h 50m', arrivalTime: '17:35', price: '1,050.00 Dhs', seatAvailability: 5 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 8, airline: 'Amine Air', departureTime: '17:00', origin: 'Casablanca', destination: 'Essaouira', flightNumber: 'FR 2247', duration: '1h 40m', arrivalTime: '18:40', price: '1,150.00 Dhs', seatAvailability: 7,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 9, airline: 'Amine Air', departureTime: '18:30', origin: 'Fez', destination: 'Tangier', flightNumber: 'FR 2248', duration: '1h 10m', arrivalTime: '19:40', price: '900.00 Dhs', seatAvailability: 4 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 10, airline: 'Amine Air', departureTime: '19:15', origin: 'Oujda', destination: 'Casablanca', flightNumber: 'FR 2249', duration: '2h 30m', arrivalTime: '21:45', price: '1,400.00 Dhs', seatAvailability: 6,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 11, airline: 'Amine Air', departureTime: '20:00', origin: 'Casablanca', destination: 'Agadir', flightNumber: 'FR 2250', duration: '1h 35m', arrivalTime: '21:35', price: '1,100.00 Dhs', seatAvailability: 3,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 12, airline: 'Amine Air', departureTime: '21:45', origin: 'Marrakech', destination: 'Fez', flightNumber: 'FR 2251', duration: '2h 00m', arrivalTime: '23:45', price: '1,200.00 Dhs', seatAvailability: 9,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 13, airline: 'Amine Air', departureTime: '07:30', origin: 'Essaouira', destination: 'Rabat', flightNumber: 'FR 2252', duration: '2h 20m', arrivalTime: '09:50', price: '1,250.00 Dhs', seatAvailability: 4,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 14, airline: 'Amine Air', departureTime: '09:15', origin: 'Tangier', destination: 'Casablanca', flightNumber: 'FR 2253', duration: '1h 45m', arrivalTime: '11:00', price: '1,300.00 Dhs', seatAvailability: 2 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 15, airline: 'Amine Air', departureTime: '13:00', origin: 'Agadir', destination: 'Rabat', flightNumber: 'FR 2254', duration: '1h 55m', arrivalTime: '14:55', price: '1,400.00 Dhs', seatAvailability: 7 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 16, airline: 'Amine Air', departureTime: '14:30', origin: 'Marrakech', destination: 'Tangier', flightNumber: 'FR 2255', duration: '2h 15m', arrivalTime: '16:45', price: '1,600.00 Dhs', seatAvailability: 3 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 17, airline: 'Amine Air', departureTime: '16:00', origin: 'Rabat', destination: 'Fez', flightNumber: 'FR 2256', duration: '1h 30m', arrivalTime: '17:30', price: '1,000.00 Dhs', seatAvailability: 6 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 18, airline: 'Amine Air', departureTime: '18:45', origin: 'Casablanca', destination: 'Oujda', flightNumber: 'FR 2257', duration: '2h 45m', arrivalTime: '21:30', price: '1,800.00 Dhs', seatAvailability: 2 ,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ] },
+    { id: 19, airline: 'Amine Air', departureTime: '20:15', origin: 'Essaouira', destination: 'Marrakech', flightNumber: 'FR 2258', duration: '1h 20m', arrivalTime: '21:35', price: '1,050.00 Dhs', seatAvailability: 6,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  },
+    { id: 20, airline: 'Amine Air', departureTime: '22:30', origin: 'Fez', destination: 'Agadir', flightNumber: 'FR 2259', duration: '2h 30m', arrivalTime: '01:00', price: '1,500.00 Dhs', seatAvailability: 8,PlacesNb :[
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+  
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+    
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+     
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : true
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+      ,
+      {
+        Taked :false ,
+        isEmpty : true
+      },
+      {
+        Taked :false ,
+        isEmpty : false
+      }
+    ]  }
   ]);
+  const [PlaneId , setPlaneId ] = useState<number>(0);
   const [NbPlaceT , setNbPlaceT] = useState(0);
   const [VoleInfo , setVoleInfo] = useState<VoleInfoType>(
     {
@@ -208,6 +3434,7 @@ function Booking() {
     }
     }
   );
+  
   const router = useRouter();
   
   const HandledClickConfirmation = () =>{
@@ -218,6 +3445,10 @@ function Booking() {
     const searchdata = localStorage.getItem('vatavols');
     if(searchdata)
     {
+      const id = parseInt(localStorage.getItem('planeid'));
+      setPlaneId(id);
+      setVols((pre : VolM[])=>pre.filter((item)=>item.id == id));
+
       const alldata = JSON.parse(searchdata);
       setVoleInfo(alldata);
       // setNbPlaceT(VoleInfo.reduce((acc ,cv ,i)=>acc+cv));
@@ -228,19 +3459,43 @@ function Booking() {
     else router.push('/');
   } , [])
 
-  const HandledPickchanged =(i:number) => {
-   setNbPlaces(prev=>prev.map((item , p)=> p !=i ? item : HowManyPlaceLeft()< NbPlaceT  ? ({
-          ...item,
-          Taked : !item.Taked
-    }):item));
+  const HandledPickchanged = (i: number) => {
+    setVols((previousData) =>
+      previousData.map((vol) =>
+        vol.id === PlaneId
+          ? {
+              ...vol,
+              PlacesNb: vol.PlacesNb.map((place, index) =>
+                index === i && HowManyPlaceLeft() < NbPlaceT
+                  ? { ...place, Taked: !place.Taked }
+                  : place
+              ),
+            }
+          : vol
+      )
+    );
   };
   const HowManyPlaceLeft = () => {
-      let totalchecked = 0;
-      NbPlaces.forEach((item /* , p*/)=>{
-        if(item.Taked /*|| (p==i && NbPlaces[p].Taked  )*/) totalchecked++;
-      })
-      return totalchecked; 
-  }
+    let totalChecked = 0;
+  
+    Vols.forEach((vol) => {
+      if (vol.id === PlaneId) {
+        vol.PlacesNb.forEach((place) => {
+          if (place.Taked) totalChecked++;
+        });
+      }
+    });
+  
+    return totalChecked;
+  };
+
+  // const HowManyPlaceLeft = () => {
+  //     let totalchecked = 0;
+  //     NbPlaces.forEach((item /* , p*/)=>{
+  //       if(item.Taked /*|| (p==i && NbPlaces[p].Taked  )*/) totalchecked++;
+  //     })
+  //     return totalchecked; 
+  // }
   return (
     <div>
       <Header />
@@ -284,16 +3539,21 @@ function Booking() {
               <div className="mt-2 flex flex-col gap-4 pl-5 mb-3">
                 <span className='font-semibold'>Selectionner Votre place</span>
                 <div className="flex flex-wrap gap-1">
-                  {NbPlaces && NbPlaces.map((item , i)=>(
-                    <>
-                      <div key={`${item.Taked}-${i}`}
-                      onClick={()=>HandledPickchanged(i)}
-                      className={`select-none text-gray-900* w-12 h-12 rounded-[3px] flex justify-center items-center
-                        ${!item.isEmpty ? " bg-red-500 ": item.Taked?" bg-green-500 ":" bg-gray-300 "}`}>
-                          {i+1}
-                      </div>
+                  {Vols && Vols.map((item )=>
+                    (<>
+                      {item.id == PlaneId && item.PlacesNb.map((item , i)=>(
+                            <>
+                              <div key={`${item.Taked}-${i}`}
+                              onClick={()=>HandledPickchanged(i)}
+                              className={`select-none text-gray-900* w-12 h-12 rounded-[3px] flex justify-center items-center
+                                ${!item.isEmpty ? " bg-red-500 ": item.Taked?" bg-green-500 ":" bg-gray-300 "}`}>
+                                  {i+1}
+                              </div>
+                            </>
+                            ))}
                     </>
                   ))}
+                 
                 </div>
               </div>
           </div>

@@ -154,7 +154,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">Adultes</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">18+ and au moment du voyage</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -178,7 +178,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">teenager</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">18- and au moment du voyage.\ (remise 50dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -202,7 +202,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">child</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">8- and au moment du voyage.\ (remise 100dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -227,7 +227,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">Baby</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">4- and au moment du voyage.\ (remise 150dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
