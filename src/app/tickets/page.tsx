@@ -141,7 +141,8 @@ function Tickets() {
                     <div className="bg-gray-200 py-5 px-2">
                         <span>List  des ticket</span>
                     </div>
-                  {Tocketslist && Tocketslist.map((item:ticketM, i:number)=>(<>
+                    <div className="overflow-auto flex flex-col gap-2 py-2 h-[60vh]">
+                    {Tocketslist && Tocketslist.map((item:ticketM, i:number)=>(<>
                     <div ref={pdfRef} className="relative mx-8 border-[1px] border-black">
                         <div className="">
                             <div className="px-2 flex justify-between items-center bg-maincolor">
@@ -193,6 +194,8 @@ function Tickets() {
                         </div>
                     </div>
                   </>))}
+                    </div>
+               
                     
                 </div>
             </div>
