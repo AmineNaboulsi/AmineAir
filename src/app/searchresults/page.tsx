@@ -71,7 +71,7 @@ function SerchResultat() {
                         <div className='absolute bottom-0 left-0 right-0 h-1 w-[100%] bg-yellow-300'></div> 
                     </div>
                </div>
-               {Vols && Vols.map((item)=>(
+               {Vols && Vols?.map((item)=>(
                 <>
                     <div className="bg-white grid grid-cols-[auto,1fr,1fr] grid-rows-1 p-7 mt-3 max-md:grid-cols-1 max-md:grid-rows-[1fr,auto] ">
                   <div className="flex w-32 flex-col justify-center items-center mr-3 border-r-2 max-md:hidden">
