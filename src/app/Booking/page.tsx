@@ -36,10 +36,10 @@ type VolM = {
   seatAvailability: number,
   PlacesNb :Places[]};
 
-  type TotalRecu = {
-    totalprice: number,
-    placecat : number[]
-  }
+  // type TotalRecu = {
+  //   totalprice: number,
+  //   placecat : number[]
+  // }
 
 
 function Booking() {
@@ -65,6 +65,7 @@ function Booking() {
   const router = useRouter();
   
   const HandledClickConfirmation = () =>{
+    console.log(VoleInfo)
     if(HowManyPlaceLeft() < NbPlaceT)alert('Pick you places');
     else {
         const id = parseInt(localStorage.getItem('planeid'));
@@ -95,7 +96,7 @@ function Booking() {
         setVols((pre: VolM[]) => pre.filter((item) => item.id == id));
         console.log(Vols);
         let total = 0;
-        let placecat = [0, 0, 0, 0];
+        let placecat = [] ;
     
         data?.forEach((item: VolM) => {
           if (item.id === id) {

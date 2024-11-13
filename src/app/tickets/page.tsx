@@ -1,24 +1,19 @@
 "use client" ;
 
-import React , {useState , useRef , useEffect} from 'react'
+import React , {useState , useEffect} from 'react'
 import Header from '../Components/header';
 import StatusInfo from '../Components/statusinfo'
 import { IoMdDownload } from "react-icons/io";
 import Image from 'next/image'
 import { GiCommercialAirplane } from "react-icons/gi";
-import html2canvas from 'html2canvas';
-import jsPDF from 'jspdf';
-import { useRouter } from 'next/navigation';
-
-
 type Places = {
     Taked : boolean ;
     isEmpty : boolean ;
   }
-  type DPlaces = {
-    number_seat : number ;
-    price : number;
-  }
+//   type DPlaces = {
+//     number_seat : number ;
+//     price : number;
+//   }
 type VolM = { 
     id: number,
     airline: string,
@@ -55,7 +50,8 @@ function Tickets() {
     // const [NbpeoplePrice , setNbpeoplePrice] = useState([]);
 
     useEffect(()=>{
-      
+      console.log(Vols)
+      console.log(VolsPicked)
       const fetchData = async () => {
         const response = await fetch('/api/vols');
         const data = await response.json();
@@ -83,7 +79,7 @@ function Tickets() {
               searchdata?.NbPlaces?.child,
               searchdata?.NbPlaces?.Baby
             ] ;
-            let index = 0 ;
+            let index ;
             console.log({placesNumbers_ : placesNumbers_})
 
             placesNumbers_?.map((item,i)=>{

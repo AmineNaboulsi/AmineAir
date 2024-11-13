@@ -1,21 +1,20 @@
 "use client";
 
-import React, { useState , useContext, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import { IoPerson } from "react-icons/io5";
-import {Trypassparametre} from "./Components/Context/datacontext"
 import { useRouter } from 'next/navigation';
 
-interface VoleInfoType {
-  CityStart: string;
-  CityEnd: string;
-  DateStart: Date;
-  NbPlaces : {
-      Adultes : number ;
-      teenager : number ;
-      child : number ;
-      Baby : number ;
-};
-}
+// interface VoleInfoType {
+//   CityStart: string;
+//   CityEnd: string;
+//   DateStart: Date;
+//   NbPlaces : {
+//       Adultes : number ;
+//       teenager : number ;
+//       child : number ;
+//       Baby : number ;
+// };
+// }
 
 function StatusInfo(){
 

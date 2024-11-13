@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import Link from 'next/link'
 import Header from '../Components/header';
 import Image from 'next/image'
 import { FaPlaneDeparture } from "react-icons/fa";
