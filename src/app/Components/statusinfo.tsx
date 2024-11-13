@@ -4,31 +4,31 @@ import React, { useState, useEffect } from 'react'
 import { IoPerson } from "react-icons/io5";
 import { useRouter } from 'next/navigation';
 
-// interface VoleInfoType {
-//   CityStart: string;
-//   CityEnd: string;
-//   DateStart: Date;
-//   NbPlaces : {
-//       Adultes : number ;
-//       teenager : number ;
-//       child : number ;
-//       Baby : number ;
-// };
-// }
+interface VoleInfoType {
+  CityStart: string;
+  CityEnd: string;
+  DateStart: Date;
+  NbPlaces : {
+      Adultes : number ;
+      teenager : number ;
+      child : number ;
+      Baby : number ;
+};
+}
 
 function StatusInfo(){
 
-    const [VoleInfo , setVoleInfo] = useState();
+    const [VoleInfo , setVoleInfo] = useState<VoleInfoType>();
     const router = useRouter();
 
     useEffect(()=>{
-      const searchdata = JSON.parse(localStorage.getItem('vatavols'));
-      if(searchdata)
+      const searchdata= JSON.parse(localStorage.getItem('vatavols')?? 'null');
+      if(searchdata !== null )
       {
         setVoleInfo(searchdata);
       }
       else router.push('/');
-    } , [])
+    } , [router])
   return (
         <section className="bg-white">
         <div className="container">
@@ -38,12 +38,12 @@ function StatusInfo(){
               <span>Aller simple</span>
               <div className="flex gap-2 items-center">
                 <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
-                <span>{VoleInfo?.DateStart.toString().split('T')[0]}</span>
+                <span>{VoleInfo?.DateStart?.toString().split('T')[0]}</span>
               </div>
               <div className="flex gap-2 items-center">
               <div className="bg-yellow-300 w-1 h-1 rounded-full"></div>
               <span>{ VoleInfo && ( <>{
-                VoleInfo.NbPlaces.Baby +  VoleInfo.NbPlaces.child + VoleInfo.NbPlaces.teenager + VoleInfo.NbPlaces.Adultes
+                VoleInfo.NbPlaces?.Baby +  VoleInfo.NbPlaces?.child + VoleInfo.NbPlaces?.teenager + VoleInfo.NbPlaces?.Adultes
               }</>)}</span>
               <IoPerson />
               </div>

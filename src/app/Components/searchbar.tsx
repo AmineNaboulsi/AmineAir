@@ -4,7 +4,6 @@ import { useState } from "react";
 import { BiSolidPlaneAlt } from "react-icons/bi";
 import { FaCar } from "react-icons/fa";
 import { MdLocalHotel } from "react-icons/md";
-import Link from 'next/link';
 import { FaArrowRightArrowLeft } from "react-icons/fa6";
 import Image from 'next/image';
 import { CiCirclePlus } from "react-icons/ci";
@@ -30,7 +29,6 @@ function Searchbar() {
     const router = useRouter();
 
     const HnadledSearchClick = () =>{
-        console.log({'before' : VoleInfo});
         localStorage.setItem('vatavols', JSON.stringify(VoleInfo));
         router.push('/searchresults');
     }

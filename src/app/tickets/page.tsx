@@ -6,14 +6,18 @@ import StatusInfo from '../Components/statusinfo'
 import { IoMdDownload } from "react-icons/io";
 import Image from 'next/image'
 import { GiCommercialAirplane } from "react-icons/gi";
+import QRCode from "react-qr-code";
+import { useRouter } from 'next/navigation';
+
 type Places = {
     Taked : boolean ;
     isEmpty : boolean ;
   }
-//   type DPlaces = {
-//     number_seat : number ;
-//     price : number;
-//   }
+  type DPlaces = {
+    passager : string ,
+    number_seat : number ;
+    price : number;
+  }
 type VolM = { 
     id: number,
     airline: string,
@@ -39,15 +43,17 @@ type ticketM = {
     PlaneN : string ;
     Price : number ;
 }
+
 function Tickets() {
 
     const [Vols ,setVols] = useState<VolM[]>();
       const [VolsPicked , setVolsPicked] = useState<VolM>();
 
     const [Tocketslist , setTocketslist ] = useState<ticketM[]>();
-    const [placesNumbers , setplacesNumbers] = useState([]);
+    const [placesNumbers , setplacesNumbers] = useState<DPlaces[]>();
 
     // const [NbpeoplePrice , setNbpeoplePrice] = useState([]);
+    const router = useRouter();
 
     useEffect(()=>{
       console.log(Vols)
@@ -57,10 +63,10 @@ function Tickets() {
         const data = await response.json();
         setVols(data);
 
-        const searchdata = JSON.parse(localStorage.getItem('vatavols'));
+        const searchdata = JSON.parse(localStorage.getItem('vatavols') ?? '[]');
        
         const id = localStorage.getItem('planeid');
-        const findvol = data.find((item) => item.id == id);
+        const findvol = data.find((item: VolM) => item.id == Number(id));
         setVolsPicked(findvol);
        
         const categories = [
@@ -71,56 +77,59 @@ function Tickets() {
         ]
         if (searchdata && searchdata.NbPlaces?.Adultes > 0) {
             const updatedTickets: ticketM[] = [];
-            const placesNumbers_ = JSON.parse(localStorage.getItem('placesNumbers'));
-            const newarraypalces = [];
+            const placesNumbers_ = JSON.parse(localStorage.getItem('placesNumbers') ?? '[]');
+         
             const categoriesM = [
               searchdata?.NbPlaces?.Adultes ,
               searchdata?.NbPlaces?.teenager,
               searchdata?.NbPlaces?.child,
               searchdata?.NbPlaces?.Baby
             ] ;
-            let index ;
-            console.log({placesNumbers_ : placesNumbers_})
+            const index = 0;
+            //console.log({placesNumbers_ : placesNumbers_})
+            
+            const newarraypalces : DPlaces[]  = [];
 
-            placesNumbers_?.map((item,i)=>{
-              if(item.isEmpty==true && item.Taked == true){
+            placesNumbers_?.map((item: Places ,i:number)=>{
+              if(item.isEmpty == true && item.Taked == true){
                   let price_ = findvol?.price ; 
                   if(categoriesM[index] > 0){
                     categoriesM[index]--;
-                    newarraypalces.push({number_seat : i , price : price_});
+                    newarraypalces.push({passager : 'Adulte' , number_seat : i , price : price_});
                     return;
                   }
 
                   if(categoriesM[index+1] > 0){
                     categoriesM[index+1]--;
                     price_-= 50;
-                    newarraypalces.push({number_seat : i , price : price_});
+                    newarraypalces.push({passager : 'Teneger' , number_seat : i , price : price_});
                     return;
                   }
                   if(categoriesM[index+2] > 0){
                     categoriesM[index+2]--;
                     price_-= 100;
-                    newarraypalces.push({number_seat : i , price : price_});
+                    newarraypalces.push({passager : 'Child' , number_seat : i , price : price_});
                     return;
                   }
                   else if(categoriesM[index+3] > 0){
                     categoriesM[index+3]--;
                     price_-= 150;
-                    newarraypalces.push({number_seat : i , price : price_});
+                    newarraypalces.push({passager : 'Baby' , number_seat : i , price : price_});
                     return;
                   }
+                  
 
               }
             })
             setplacesNumbers(newarraypalces);
-            console.log({newarraypalces : newarraypalces})
+            // console.log({aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa : newarraypalces})
             
             for (let j = 0; j < 4; j++) {
                 const newnb:number = categories[j];
                 if(newnb>0){
                     for (let i = 0; i < newnb; i++) {
                         updatedTickets.push({
-                          namep:  'Amine Air',
+                          namep: 'Amine Air',
                           datedepart: new Date(searchdata?.DateStart),
                           CityS: searchdata?.CityStart || '',
                           CityE: searchdata?.CityEnd || '',
@@ -133,7 +142,7 @@ function Tickets() {
                         });
                       }
                     setTocketslist(updatedTickets);
-                    console.log(updatedTickets);
+                    console.log({updatedTickets : updatedTickets});
                 }
                
             }
@@ -248,15 +257,15 @@ function Tickets() {
                                                     <span className='absolute left-2 -bottom-[0] bg-transparent'>18</span>
                                                 </div>
                                                 <div className="relative border-b-2 border-black border-l-2 h-2">
-                                                    <span className='absolute left-2 -bottom-[0] bg-transparent'>{placesNumbers[i]?.number_seat +1}</span>
+                                                    <span className='absolute left-2 -bottom-[0] bg-transparent'>{placesNumbers &&placesNumbers[i].number_seat +1}</span>
                                                 </div>
                                             </div>
                                         </div>
                                     
                                     </div>
                                     <div className="flex flex-col justify-end items-center gap-5 mb-3">
-                                        <span className='mt-2'>{parseInt(placesNumbers[i]?.price )} MAD</span>
-                                        <Image src='/QR Code.png' width={90} height={90} alt=''/>
+                                        <span className='mt-2'>{Number(placesNumbers &&placesNumbers[i].price )} MAD</span>
+                                        <QRCode value={placesNumbers ? (placesNumbers[i].passager + (i+1) + item.placeN +  (item.PlaneN )):''} className='h-20 w-20' />
                                         <svg width="167" height="54" viewBox="0 0 167 54" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M1 49.9038C21.0024 47.5561 41.212 40.6247 60.2908 34.6277C89.2183 25.5349 117.606 14.8052 146.607 5.93377C150.927 4.61217 158.019 2.55896 162.771 1.46118C165.107 0.921544 168.296 0.517219 163.529 2.2801C143.482 9.6936 121.41 12.613 100.355 15.4774C78.8508 18.4029 57.2381 20.2579 35.6021 21.8713C32.029 22.1378 21.376 23.2398 24.8679 22.4383C34.5793 20.209 43.9112 16.2235 52.9978 12.2332C58.9536 9.61778 64.7811 6.70429 70.7724 4.16993C72.4408 3.46422 76.2929 1.33211 76.108 3.13053C75.9178 4.98037 74.8066 6.61732 74.2453 8.39055C72.3769 14.2933 71.3535 20.3852 70.7093 26.5329C69.8795 34.4515 68.8937 43.4019 70.1094 51.3527C70.4393 53.51 71.8154 53.5228 72.4773 51.5417C74.0053 46.9682 74.0117 41.9036 75.445 37.2419C80.3633 21.2458 77.7362 44.8013 81.1278 44.8013" stroke="black" stroke-linecap="round"/>
                                         </svg>  
@@ -270,7 +279,7 @@ function Tickets() {
                                         <div className="flex flex-col gap-3">
                                             <div className="flex flex-col">
                                                 <span>Passager</span>
-                                                <span>xxxxx</span>
+                                                <span>{placesNumbers && placesNumbers[i]?.passager}</span>
                                             </div>
                                             <div className="flex flex-col">
                                                 <span>Embarquement</span>
@@ -284,7 +293,7 @@ function Tickets() {
                                             </div>
                                             <div className="flex flex-col">
                                                 <span>Place</span>
-                                                <span >{placesNumbers[i]?.number_seat +1}</span>
+                                                <span >{placesNumbers && placesNumbers[i].number_seat +1}</span>
                                             </div>
                                         </div>
                                     </div>

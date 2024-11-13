@@ -36,10 +36,10 @@ type VolM = {
   seatAvailability: number,
   PlacesNb :Places[]};
 
-  // type TotalRecu = {
-  //   totalprice: number,
-  //   placecat : number[]
-  // }
+  type TotalRecu = {
+    totalprice: number,
+    placecat : number[]
+  }
 
 
 function Booking() {
@@ -61,14 +61,17 @@ function Booking() {
     }
     }
   );
-  const [TotalPrice , setTotalPrice ] = useState();
+  const [TotalPrice , setTotalPrice ] = useState<TotalRecu>();
   const router = useRouter();
   
   const HandledClickConfirmation = () =>{
     console.log(VoleInfo)
-    if(HowManyPlaceLeft() < NbPlaceT)alert('Pick you places');
+    if(HowManyPlaceLeft() < NbPlaceT){
+      alert('Pick you places');
+      return;
+    }
     else {
-        const id = parseInt(localStorage.getItem('planeid'));
+        const id = Number(localStorage.getItem('planeid'));
 
         Vols?.forEach((item: VolM) => {
         if (item.id == id) {
@@ -91,12 +94,12 @@ function Booking() {
         const totalPlacesPicked = alldata.NbPlaces.Baby + alldata.NbPlaces.child + alldata.NbPlaces.teenager + alldata.NbPlaces.Adultes;
         setNbPlaceT(totalPlacesPicked);
     
-        const id = parseInt(localStorage.getItem('planeid'));
+        const id = Number(localStorage.getItem('planeid'));
         setPlaneId(id);
-        setVols((pre: VolM[]) => pre.filter((item) => item.id == id));
+        setVols((pre) =>  pre?.filter((item) => item.id == id));
         console.log(Vols);
         let total = 0;
-        let placecat = [] ;
+        const placecat: number[] = [] ;
     
         data?.forEach((item: VolM) => {
           if (item.id === id) {
@@ -124,7 +127,7 @@ function Booking() {
           }
         });
     
-        setTotalPrice({ totalprice: total, placecat });
+        setTotalPrice({ totalprice : total, placecat });
         console.log({ totalprice: total, placecat })
       } else {
         router.push('/');
@@ -133,11 +136,11 @@ function Booking() {
     fetchData();
     
     
-  } , [])
+  } , [router])
 
   const HandledPickchanged = (i: number) => {
     setVols((previousData) =>
-      previousData.map((vol) =>
+      previousData?.map((vol) =>
         vol.id === PlaneId
           ? {
               ...vol,
@@ -238,7 +241,7 @@ function Booking() {
             <div className="border-2 border-gray-300 rounded-md">
               <div className="flex justify-between rounded-ss-md rounded-se-md bg-gray-200 text-xl text-black p-3  ">
                 <span>Total</span>
-                <span >{TotalPrice && parseInt(TotalPrice.totalprice)} MAD</span>
+                <span >{TotalPrice && Number(TotalPrice?.totalprice)} MAD</span>
                 
               </div>
               <div className="flex flex-col px-5 py-3">
@@ -248,7 +251,7 @@ function Booking() {
                           
                           <div className="flex justify-between">
                           <span>{i==0?"Adultes":i==1 ? "Teenager" : i==2 ? "Child" : "Baby" }</span>
-                          <span>{parseInt(item)} MAD</span>
+                          <span>{Number(item)} MAD</span>
                         </div>
                         }
                                  

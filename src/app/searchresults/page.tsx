@@ -23,7 +23,7 @@ function SerchResultat() {
   const [Vols , setVols] = useState<VolM[]>();
   
   const router = useRouter();
-  const searchdata = JSON.parse(localStorage.getItem('vatavols'));
+  const searchdata =   typeof window !== 'undefined' ?  (JSON.parse(localStorage.getItem('vatavols')?? '[]')) : router.push('/');
   useEffect(()=>{
     fetch('/api/vols')
     .then(res=>res.json())
@@ -100,11 +100,11 @@ function SerchResultat() {
                       </div>
                       <div className="flex flex-col text-end">
                         <span className='text-xs text-gray-400'>Trafic Basic</span>
-                        <span className='text-2xl font-semibold'>{parseInt(item.price)} Dhs</span>
+                        <span className='text-2xl font-semibold'>{Number(item.price)} Dhs</span>
                       </div>
                       <div onClick={()=>{
                           router.push(`/booking?id=${item.id}`);
-                          localStorage.setItem("planeid" , item.id );
+                          localStorage.setItem("planeid" , ''+item.id );
                           searchdata.CityStart = item.origin ;
                           searchdata.CityEnd = item.destination ;
                           localStorage.setItem("vatavols" , JSON.stringify(searchdata));
