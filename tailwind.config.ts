@@ -13,7 +13,9 @@ const config: Config = {
         foreground: "var(--foreground)",
         maincolor : "var(--primarycolor)",
         secondcolor : "var(--secondcolor)",
-        coldbluecolor : "var(--coldbluecolor)"
+        coldbluecolor : "var(--coldbluecolor)",
+        bggraycolor : "var(--bggraycolor)",
+        greenlightcolor : "var(--greenlightcolor)"
       }
     },
   },

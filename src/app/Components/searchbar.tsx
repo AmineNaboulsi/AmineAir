@@ -10,21 +10,12 @@ import Image from 'next/image';
 import { CiCirclePlus } from "react-icons/ci";
 import { IoIosInformationCircle } from "react-icons/io";
 import { CiCircleMinus } from "react-icons/ci";
-
-interface VoleInfoType {
-    CityStart: string;
-    CityEnd: string;
-    DateStart: Date;
-    NbPlaces : {
-        Adultes : number ;
-        teenager : number ;
-        child : number ;
-        Baby : number ;
-  };
-}
+import { useRouter } from 'next/navigation';
 
 function Searchbar() {
-    const [VoleInfo , setVoleInfo] = useState<VoleInfoType>({
+
+
+    const [VoleInfo , setVoleInfo] = useState({
         CityStart  : "" ,
         CityEnd : "" ,
         DateStart : new Date() ,
@@ -36,32 +27,38 @@ function Searchbar() {
         }
     })
     const [ShowPopupPassager , setShowPopupPassager] = useState(false) ;
+    const router = useRouter();
+
+    const HnadledSearchClick = () =>{
+        console.log({'before' : VoleInfo});
+        localStorage.setItem('vatavols', JSON.stringify(VoleInfo));
+        router.push('/searchresults');
+    }
   return (
     <div className='bg-maincolor'>
         <div className="container">
             <div className="">
-                <ul className='flex items-center  text-xl'>
-                    <li className='relative px-5 flex justify-center'>
+                <ul className='flex items-center  text-xl text-gray-100'>
+                    <li className='relative px-5 flex justify-center max-md:mx-4'>
                         <div className="flex items-center justify-center gap-3">
                             <BiSolidPlaneAlt />
                             <span>Vols</span>
                         </div>
                         <div className="absolute -bottom-1 w-[100%] h-[2px] bg-secondcolor"></div>
                     </li>
-                    <li className='px-5 flex justify-center'>
+                    <li className='px-5 flex justify-center transition-all max-md:hidden'>
                         <div className="flex items-center justify-center gap-3">
-                        <FaCar />
-
+                            <FaCar />
                             <span>Location de voiture</span>
                         </div>
                     </li>
-                    <li className='px-5 flex justify-center'>
+                    <li className='px-5 flex justify-center max-md:hidden'>
                     <div className="flex items-center justify-center gap-3">
                             <MdLocalHotel />
                             <span>Hotels</span>
                         </div>
                     </li>
-                    <li className='px-5 flex justify-center'>
+                    <li className='px-5 flex justify-center max-md:hidden'>
                     <div className="flex items-center justify-center gap-3">
                             <BiSolidPlaneAlt />
                             <span>Cartes Cadeaux</span>
@@ -69,39 +66,63 @@ function Searchbar() {
                     </li>
                  
                 </ul>
-                <div className="grid grid-cols-[1fr,auto] gap-3 mt-5">
-                <div className="grid grid-cols-[1fr,auto,1fr]  bg-white items-center rounded-[3px]">
-                            <div className="flex flex-col px-4 py-1">
+                <div className="grid grid-cols-[1fr,auto] gap-3 mt-5 max-md:grid-cols-1  max-md:mx-4">
+                <div className="grid grid-cols-[1fr,auto,1fr] max-md:grid-cols-1 items-center rounded-[3px]">
+                            <div className="flex flex-col px-4 py-1 bg-white">
                                 <span className='text-gray-400 text-sm'>De</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input
+                                value={VoleInfo.CityStart}
+                                onChange={(e)=>{
+                                    setVoleInfo(prev=>
+                                        ({...prev,CityStart : e.target.value})
+                                    )
+                                }}
+                                placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
                             </div>
-                            <div className="relative flex items-center h-[100%]">
-                                <div className="absolute left-[50%] h-[100%] w-[1px] bg-gray-300"></div>
-                                <FaArrowRightArrowLeft className='bg-white border-2 border-gray-300 rounded-[50%] w-[30px] h-[30px] p-[6px] z-[1] cursor-pointer' />
+                            <div className="relative flex items-center justify-center h-[100%] bg-white max-md:bg-transparent">
+                                <div className=" left-[50%] h-[100%] w-[1px] bg-gray-300 hidden"></div>
+                                <FaArrowRightArrowLeft className=' max-md:absolute bg-white border-2 border-gray-300 rounded-[50%] w-[30px] h-[30px] p-[6px] z-[1] cursor-pointer' />
                             </div>
-                            <div className="flex flex-col px-4 py-1">
+                            <div className="flex flex-col px-4 py-1 bg-white max-md:mt-2">
                                 <span className='text-gray-400 text-sm'>A</span>
-                                <input placeholder='ville' style={{all : 'unset'}} className='font-normal' type='text' />
+                                <input placeholder='ville'
+                                value={VoleInfo.CityEnd}
+                                onChange={(e)=>{
+                                    setVoleInfo(prev=>
+                                        ({...prev,CityEnd : e.target.value})
+                                    )
+                                }}
+                                style={{all : 'unset'}} className='font-normal' type='text' />
                             </div> 
                         </div>
-                    <Link className='flex items-center bg-secondcolor px-24 rounded-[3px]' href="/searchresults" >
+                    <div className='max-md:row-start-3 text-black flex items-center justify-center bg-secondcolor px-24 max-md:py-2 rounded-[3px]' 
+                        onClick={HnadledSearchClick} >
                         <span>Recherche</span>
-                    </Link>
-                    <div className=" grid grid-cols-[1fr,auto] gap-2  items-center rounded-[3px]">
+                    </div>
+                    <div className="grid grid-cols-[1fr,1fr] gap-2  items-center rounded-[3px]">
                             <div className="flex flex-col px-4 py-1 bg-white rounded-[3px]">
                                 <span className='text-gray-400 text-sm'>De</span>
-                                <input  type='date'  style={{all : 'unset'}} className='font-normal'/>
+                                <input 
+                                 value={VoleInfo.DateStart.toISOString().split('T')[0]}
+                                 onChange={(e)=>{
+                                     setVoleInfo(prev=>
+                                         ({...prev,DateStart : new Date(e.target.value)})
+                                     )
+                                 }}
+                                type='date' 
+                                
+                                style={{all : 'unset'}} className='font-normal'/>
                             </div>
                             <div 
-                            className="relative w-64 cursor-pointer" >
+                            className="relative w-64 cursor-pointer max-md:w-auto" >
                                 <div className="flex flex-col px-4 py-1 bg-white rounded-[3px]"
                                  onClick={()=>{
                                     setShowPopupPassager(!ShowPopupPassager);
                                 }}
                                 >
-                            <span className='text-gray-400 text-sm'>Passagers</span>
+                            <span className='text-gray-400 text-sm '>Passagers</span>
                                                             <label style={{all : 'unset'}}
-                                                            className='font-normal'
+                                                            className='font-normal '
                                                             >
                                                              {VoleInfo && VoleInfo.NbPlaces.Adultes } Adultes
                                                              {(VoleInfo.NbPlaces.teenager + 
@@ -115,14 +136,14 @@ function Searchbar() {
 
                                 </div>
                                 
-                                <div className={`${!ShowPopupPassager && 'hidden' } absolute w-[120%] right-0 top-[95%]`}>
-                                    <div className="flex justify-center">
+                                <div className={`${!ShowPopupPassager && 'hidden max-md:hidden' } absolute w-[120%] right-0 top-[95%] max-md:fixed max-md:inset-0 max-md:flex max-md:justify-center max-md:items-center max-md:w-full max-md:bg-bggraycolor max-md:z-[6]`}>
+                                    <div className="flex justify-center max-md:hidden">
                                         <Image src="/poppupicon.svg"
                                                 width={30}
                                                 height={30}
                                                 alt="" />
                                     </div>
-                                            <div className="bg-white p-2 grid grid-cols-1 gap-2 mb-1 ">
+                                            <div className="p-2 grid grid-cols-1 gap-2 mb-1 bg-white rounded-md max-md:w-[80vw]">
                                                 <div className="">
                                                     <div className="grid grid-cols-[auto,1fr] gap-1 border-2 bg-coldbluecolor p-2">
                                                         <IoIosInformationCircle size={18} className="text-blue-500" />
@@ -132,7 +153,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">Adultes</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">18+ and au moment du voyage</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -156,7 +177,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">teenager</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">18- and au moment du voyage.\ (remise 50dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -180,7 +201,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">child</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">8- and au moment du voyage.\ (remise 100dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -205,7 +226,7 @@ function Searchbar() {
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex flex-col">
                                                         <span className="text-sm">Baby</span>
-                                                        <span className="text-xs">16+ and au moment du voyage</span>
+                                                        <span className="text-xs">4- and au moment du voyage.\ (remise 150dh )</span>
                                                     </div>
                                                     <div className="flex items-center gap-3 text-2xl select-none">
                                                         <CiCircleMinus onClick={()=>{
@@ -227,7 +248,16 @@ function Searchbar() {
                                                         }} />
                                                     </div>
                                                 </div>
-                                               
+                                                
+                                                <div className="flex items-center justify-end">
+                                                    <div className="flex flex-col text-blue-600"
+                                                    onClick={()=>{
+                                                        setShowPopupPassager(!ShowPopupPassager);
+                                                    }}>
+                                                        Fini
+                                                    </div>
+                                                
+                                                </div>
                                             </div>
                                     
                                 </div>
