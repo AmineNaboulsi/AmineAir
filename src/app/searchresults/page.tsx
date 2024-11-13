@@ -103,7 +103,7 @@ function SerchResultat() {
                         <span className='text-2xl font-semibold'>{Number(item.price)} Dhs</span>
                       </div>
                       <div onClick={()=>{
-                          router.push(`/booking?id=${item.id}`);
+                          router.push(`/Booking?id=${item.id}`);
                           localStorage.setItem("planeid" , ''+item.id );
                           searchdata.CityStart = item.origin ;
                           searchdata.CityEnd = item.destination ;
